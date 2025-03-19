@@ -145,16 +145,84 @@
 # Traducción en inglés:
 # Create a class MusicalInstrument with an attribute name and a method play(), which returns "Sound of the instrument". Then, create two classes Guitar and Piano, which inherit from MusicalInstrument and override the play() method to return "Guitar strumming" and "Piano notes", respectively.
 
-class Musical_instrument():
-    def __init__(self,name):
-        self.name = name
+# class InstrumentoMusical:
+#     def __init__(self, nombre):
+#         self.nombre = nombre
 
-    def play(self):
-        return 'sound of the instrument'
-    
-class Guitar(Musical_instrument):
-    def play(self):
-        r
+#     def tocar(self):
+#         return "Sonido del instrumento"
 
-class piano(Musical_instrument):
-    pass
+
+# class Guitarra(InstrumentoMusical):
+#     def tocar(self):
+#         return "Rasgueo de guitarra"
+
+
+# class Piano(InstrumentoMusical):
+#     def tocar(self):
+#         return "Notas de piano"
+
+
+# # Ejemplo de uso
+# mi_guitarra = Guitarra("Gibson Les Paul")
+# mi_piano = Piano("Yamaha P45")
+
+# print(f"{mi_guitarra.nombre}: {mi_guitarra.tocar()}")
+# print(f"{mi_piano.nombre}: {mi_piano.tocar()}")
+
+
+
+# Ejercicio: Sistema de Empleados y Cálculo de Salario
+# Enunciado:
+# Crea una clase base Empleado con los atributos nombre y salario_base. Implementa un método calcular_salario() que devuelva el salario base.
+
+# Luego, crea dos clases hijas:
+
+# EmpleadoTiempoCompleto: Tiene un bono fijo de $500 que se suma al salario base.
+# EmpleadoPorHora: Recibe un número de horas trabajadas y una tarifa por hora, y su salario se calcula como horas * tarifa.
+# Traducción en inglés:
+# Create a base class Employee with the attributes name and base_salary. Implement a method calculate_salary() that returns the base salary.
+
+# Then, create two subclasses:
+
+# FullTimeEmployee: Has a fixed bonus of $500 added to the base salary.
+# HourlyEmployee: Receives a number of worked hours and an hourly rate, and its salary is calculated as hours * rate.
+
+
+
+# class Empleado:
+#     def __init__(self, nombre, salario_base):
+#         self.nombre = nombre
+#         self.salario_base = salario_base
+
+#     def calcular_salario(self):
+#         return self.salario_base
+
+
+# class EmpleadoTiempoCompleto(Empleado):
+#     def calcular_salario(self):
+#         bono = 500
+#         return self.salario_base + bono
+
+
+# class EmpleadoPorHora(Empleado):
+#     def __init__(self, nombre, tarifa_por_hora, horas_trabajadas):
+#         super().__init__(nombre, 0)  # El salario base no se usa aquí
+#         self.tarifa_por_hora = tarifa_por_hora
+#         self.horas_trabajadas = horas_trabajadas
+
+#     def calcular_salario(self):
+#         return self.tarifa_por_hora * self.horas_trabajadas
+
+
+# # Ejemplo de uso
+# empleado1 = EmpleadoTiempoCompleto("Carlos", 2000)
+# empleado2 = EmpleadoPorHora("Ana", 15, 160)  # 15 dólares por hora, 160 horas trabajadas
+
+# print(f"{empleado1.nombre}: Salario mensual = ${empleado1.calcular_salario()}")
+# print(f"{empleado2.nombre}: Salario mensual = ${empleado2.calcular_salario()}")
+
+
+
+
+
