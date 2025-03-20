@@ -165,3 +165,79 @@
 # employee_1.description()
 # print('\nPart time employee:')
 # employee_2.description()
+
+
+
+
+
+
+
+
+
+# Clase Base: Vehicle
+
+# Atributos: brand (marca), model (modelo), year (año de fabricación).
+# Métodos:
+# description(): Muestra la información del vehículo.
+# Clase Derivada: Car
+
+# Atributos: hereda de Vehicle, agrega doors (número de puertas).
+# Métodos:
+# description(): Llama al método padre y agrega el número de puertas.
+# Clase Derivada: Motorcycle
+
+# Atributos: hereda de Vehicle, agrega type_motorcycle (tipo de moto: deportiva, scooter, etc.).
+# Métodos:
+# description(): Llama al método padre y agrega el tipo de moto.
+
+
+
+class Vehicle():
+     
+    def __init__(self,brand, model,year):
+          
+          self.brand = brand 
+          self.model = model 
+          self.year = year
+          
+    
+    def description(self):
+        print(f'Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}')
+
+
+class Car(Vehicle):
+     
+    def __init__(self, brand, model, year, doors):
+          super().__init__(brand, model, year)
+
+          self.doors = doors
+
+    def description(self):
+        super().description()
+
+        print(f'Number of doors:{self.doors}')
+
+
+class Motircycle(Vehicle):
+     
+    def __init__(self, brand, model, year,type_motorcycle):
+          super().__init__(brand, model, year)
+
+          self.type_motorcycle = type_motorcycle
+
+    def description(self):
+        super().description()
+    
+        print(f'Type of motorcycle:{self.type_motorcycle}')
+
+my_car = Car('Toyota','Yaris',2024,4)
+my_motorcycle = Motircycle('Yamaha','C400',2024,'Choper')
+
+
+print('\nDate of car')
+my_car.description()
+print('\nDates of motorcycle')
+my_motorcycle.description()
+
+
+          
