@@ -190,54 +190,128 @@
 # Métodos:
 # description(): Llama al método padre y agrega el tipo de moto.
 
-
-
-class Vehicle():
+# class Vehicle():
      
-    def __init__(self,brand, model,year):
+#     def __init__(self,brand, model,year):
           
-          self.brand = brand 
-          self.model = model 
-          self.year = year
+#           self.brand = brand 
+#           self.model = model 
+#           self.year = year
           
     
-    def description(self):
-        print(f'Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}')
+#     def description(self):
+#         print(f'Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}')
 
 
-class Car(Vehicle):
+# class Car(Vehicle):
      
-    def __init__(self, brand, model, year, doors):
-          super().__init__(brand, model, year)
+#     def __init__(self, brand, model, year, doors):
+#           super().__init__(brand, model, year)
 
-          self.doors = doors
+#           self.doors = doors
 
-    def description(self):
-        super().description()
+#     def description(self):
+#         super().description()
 
-        print(f'Number of doors:{self.doors}')
+#         print(f'Number of doors:{self.doors}')
 
 
-class Motircycle(Vehicle):
+# class Motircycle(Vehicle):
      
-    def __init__(self, brand, model, year,type_motorcycle):
-          super().__init__(brand, model, year)
+#     def __init__(self, brand, model, year,type_motorcycle):
+#           super().__init__(brand, model, year)
 
-          self.type_motorcycle = type_motorcycle
+#           self.type_motorcycle = type_motorcycle
 
-    def description(self):
-        super().description()
+#     def description(self):
+#         super().description()
     
-        print(f'Type of motorcycle:{self.type_motorcycle}')
+#         print(f'Type of motorcycle:{self.type_motorcycle}')
 
-my_car = Car('Toyota','Yaris',2024,4)
-my_motorcycle = Motircycle('Yamaha','C400',2024,'Choper')
-
-
-print('\nDate of car')
-my_car.description()
-print('\nDates of motorcycle')
-my_motorcycle.description()
+# my_car = Car('Toyota','Yaris',2024,4)
+# my_motorcycle = Motircycle('Yamaha','C400',2024,'Choper')
 
 
-          
+# print('\nDate of car')
+# my_car.description()
+# print('\nDates of motorcycle')
+# my_motorcycle.description()
+
+
+
+
+# Clase Base: ElectronicDevice
+
+# Atributos: brand (marca), model (modelo), price (precio).
+# Métodos:
+# description(): Muestra la información del dispositivo.
+# Clase Derivada: Smartphone
+
+# Atributos: hereda de ElectronicDevice, agrega ram (RAM en GB) y storage (almacenamiento en GB).
+# Métodos:
+# description(): Llama al método padre y agrega la RAM y el almacenamiento.
+# Clase Derivada: Laptop
+
+# Atributos: hereda de ElectronicDevice, agrega processor (procesador) y battery_life (duración de la batería en horas).
+# Métodos:
+# description(): Llama al método padre y agrega la información adicional.
+
+
+# class ElectronicDevice():
+
+#     def __init__(self,brand,model,price):
+        
+#         self.brand = brand
+#         self.model = model 
+#         self.price = price
+
+#     def description(self):
+
+#         print(f'Brand:{self.brand}\nModel:{self.model}\nPrice:{self.price}')
+
+
+# class Smarphone(ElectronicDevice):
+    
+#     def __init__(self, brand, model, price,ram,storage):
+#         super().__init__(brand, model, price)
+
+#         self.ram = ram 
+#         self.storage = storage
+
+#     def description(self):
+#         super().description()
+
+#         print(f'Ram:{self.ram}GB\nstorage:{self.storage}GB')
+
+    
+# class Laptop(ElectronicDevice):
+
+#     def __init__(self, brand, model, price, processor, battery_life):
+#         super().__init__(brand, model, price)
+
+#         self.processor = processor
+#         self.battery_life = battery_life
+
+
+#     def description(self):
+#         super().description()
+
+#         print(f'Processor:{self.processor}\nBattery life:{self.battery_life}%')
+
+# print('\nDate of Smarphone')
+# my_smarphone = Smarphone('samsung','S21',2000,12,128)
+# my_smarphone.description()
+# print('\nDate of Laptop')
+# my_laptop = Laptop('Asus','VivoBook',1799,'Core i5',80)
+# my_laptop.description()
+
+
+
+
+
+
+
+n =  1178926541619593286
+t = len(str(n))
+print(t)
+
