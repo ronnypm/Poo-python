@@ -231,61 +231,64 @@
 
 
 
-class Persona:
-    def __init__(self, nombre, edad):
-        self.nombre = nombre
-        self.edad = edad
+# class Persona:
+#     def __init__(self, nombre, edad):
+#         self.nombre = nombre
+#         self.edad = edad
 
-    def __str__(self):
-        return f'Nombre: {self.nombre}\nEdad: {self.edad}'
-
-
-class Estudiante(Persona):
-    def __init__(self, nombre, edad, notas):
-        super().__init__(nombre, edad)
-        self.notas = notas
-
-    @property
-    def promedio(self):
-        """Calcula el promedio de notas con manejo de error si la lista está vacía"""
-        try:
-            return sum(self.notas) / len(self.notas)
-        except ZeroDivisionError:
-            return 0  # Si no hay notas, el promedio es 0
-
-    @property
-    def estado(self):
-        """Retorna si el estudiante está aprobado o no"""
-        return 'Aprobado' if self.promedio >= 13 else 'Desaprobado'
-
-    def __str__(self):
-        return f'{super().__str__()}\nNotas: {self.notas}\nPromedio: {self.promedio:.2f}\nEstado: {self.estado}'
+#     def __str__(self):
+#         return f'Nombre: {self.nombre}\nEdad: {self.edad}'
 
 
-class Trabajador(Persona):
-    def __init__(self, nombre, edad, sueldo, tiempo):
-        super().__init__(nombre, edad)
-        self.sueldo = sueldo
-        self.tiempo = tiempo
+# class Estudiante(Persona):
+#     def __init__(self, nombre, edad, notas):
+#         super().__init__(nombre, edad)
+#         self.notas = notas
 
-    @property
-    def sueldo_total(self):
-        """Calcula el sueldo total con bono si tiene más de 5 años"""
-        return self.sueldo * 1.10 if self.tiempo > 5 else self.sueldo
+#     @property
+#     def promedio(self):
+#         """Calcula el promedio de notas con manejo de error si la lista está vacía"""
+#         try:
+#             return sum(self.notas) / len(self.notas)
+#         except ZeroDivisionError:
+#             return 0  # Si no hay notas, el promedio es 0
 
-    def __str__(self):
-        return f'{super().__str__()}\nTiempo trabajado: {self.tiempo} años\nSueldo Base: {self.sueldo}\nSueldo Total: {self.sueldo_total}'
+#     @property
+#     def estado(self):
+#         """Retorna si el estudiante está aprobado o no"""
+#         return 'Aprobado' if self.promedio >= 13 else 'Desaprobado'
+
+#     def __str__(self):
+#         return f'{super().__str__()}\nNotas: {self.notas}\nPromedio: {self.promedio:.2f}\nEstado: {self.estado}'
 
 
-# Lista de personas (mezcla de estudiantes y trabajadores)
-personas = [
-    Estudiante('Juan', 23, [15, 14, 15]),
-    Trabajador('Maria', 40, 1000, 6),
-    Estudiante('Ana', 20, []),  # Caso con lista vacía para ver manejo de errores
-    Trabajador('Carlos', 35, 1200, 4)
-]
+# class Trabajador(Persona):
+#     def __init__(self, nombre, edad, sueldo, tiempo):
+#         super().__init__(nombre, edad)
+#         self.sueldo = sueldo
+#         self.tiempo = tiempo
 
-# Mostrar la información de cada persona
-for persona in personas:
-    print(persona)
-    print('-' * 30)
+#     @property
+#     def sueldo_total(self):
+#         """Calcula el sueldo total con bono si tiene más de 5 años"""
+#         return self.sueldo * 1.10 if self.tiempo > 5 else self.sueldo
+
+#     def __str__(self):
+#         return f'{super().__str__()}\nTiempo trabajado: {self.tiempo} años\nSueldo Base: {self.sueldo}\nSueldo Total: {self.sueldo_total}'
+
+
+# # Lista de personas (mezcla de estudiantes y trabajadores)
+# personas = [
+#     Estudiante('Juan', 23, [15, 14, 15]),
+#     Trabajador('Maria', 40, 1000, 6),
+#     Estudiante('Ana', 20, []),  # Caso con lista vacía para ver manejo de errores
+#     Trabajador('Carlos', 35, 1200, 4)
+# ]
+
+# # Mostrar la información de cada persona
+# for persona in personas:
+#     print(persona)
+#     print('-' * 30)
+
+
+

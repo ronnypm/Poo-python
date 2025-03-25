@@ -11,7 +11,7 @@ class Coche(): #!clase
         self.__ruedas = 4
         self.__enmarcha = False
 
-    def arrancar(self,arrancamos):  #!comportamiento
+    def arrancar(self,arrancamos):  #!comportamiento/metodo
         
             self.__enmarcha = arrancamos
         
