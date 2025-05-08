@@ -7,7 +7,7 @@
 # class Coche(): #!clase
 #     def __init__(self):
 #         self.__largo_chasis = 250
-#         self.__ancho_chasis = 120          #!propiedades o estado
+#         self.__ancho_chasis = 120          #!atrobutos o estado
 #         self.__ruedas = 4
 #         self.__enmarcha = False
 
