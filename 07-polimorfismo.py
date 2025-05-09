@@ -27,7 +27,7 @@ def desplazamiento_vehiculo(vehiculo):
 vehiculos = [Coche(),Moto(),Camion()]
 
 for vehiculo in vehiculos:
-    desplazamiento_vehiculo(vehiculo[1])
+    desplazamiento_vehiculo(vehiculo)
 
 # mi_vehiculo = Camion()
 
