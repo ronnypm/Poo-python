@@ -159,4 +159,5 @@ print(reporte.generar())                # "Generando reporte..."
 print(reporte.exportar("excel"))        # "Exportando como Excel..."
 print(reporte.exportar("pdf"))          # "Exportando como PDF..."
 print(reporte.exportar("csv"))          # "Exportando como CSV..."
-# print(reporte.exportar("xml"))        # Levanta error: formato no soportado
+#print(reporte.exportar("xml"))        # Levanta error: formato no soportado
+print(reporte.exportar())
