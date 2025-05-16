@@ -85,26 +85,74 @@
 # Si tenemos un objeto que representa la batería de un dispositivo, podemos calcular el estado en función del porcentaje de carga:
 
 
-class Bateria():
-    def __init__(self, porcentaje_carga):
-        self.porcentaje_carga = porcentaje_carga
+# class Bateria():
+#     def __init__(self, porcentaje_carga):
+#         self.porcentaje_carga = porcentaje_carga
         
+#     @property
+#     def estado(self):
+#         if self.porcentaje_carga == 100:
+#             return 'Completamente cargada'
+#         elif self.porcentaje_carga > 75:
+#             return 'Cargada'
+#         elif self.porcentaje_carga > 50:
+#             return 'Medio'
+#         elif self.porcentaje_carga > 25:
+#             return 'Baja'
+#         else:
+#             return 'Muy baja'
+        
+
+# mi_bateria = Bateria(100)
+# print(mi_bateria.estado)    
+
+# mi_bateria.porcentaje_carga = 10
+# print(mi_bateria.estado)
+
+
+
+
+
+
+
+
+class EdadInvalidaError(Exception):
+    pass
+
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad  # setter se encarga de validar
+
     @property
-    def estado(self):
-        if self.porcentaje_carga == 100:
-            return 'Completamente cargada'
-        elif self.porcentaje_carga > 75:
-            return 'Cargada'
-        elif self.porcentaje_carga > 50:
-            return 'Medio'
-        elif self.porcentaje_carga > 25:
-            return 'Baja'
-        else:
-            return 'Muy baja'
-        
+    def edad(self):
+        return self._edad
 
-mi_bateria = Bateria(100)
-print(mi_bateria.estado)    
+    @edad.setter
+    def edad(self, valor):
+        if valor < 0 or valor > 120:
+            raise EdadInvalidaError("Edad fuera de rango")
+        self._edad = valor
 
-mi_bateria.porcentaje_carga = 10
-print(mi_bateria.estado)
+    def saludar(self):
+        print(f"Hola, soy {self.nombre} y tengo {self.edad} años.")
+
+# --- Flujo principal de entrada ---
+while True:
+    try:
+        nombre = input("Ingrese su nombre: ").strip()
+        edad_str = input("Ingrese su edad: ").strip()
+
+        if not edad_str:
+            raise ValueError("No ingresaste la edad.")
+
+        edad_int = int(edad_str)
+
+        persona = Persona(nombre, edad_int)
+        persona.saludar()
+        break
+
+    except EdadInvalidaError as e:
+        print(f"Error de validación: {e}")
+    except ValueError:
+        print("Edad inválida: debe ser un número.")
