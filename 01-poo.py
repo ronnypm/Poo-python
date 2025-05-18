@@ -32,7 +32,19 @@
 
 
 
+class Empleado:
+    empresa = 'Sastreria Itham'
 
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+e1 = Empleado('Lucia')
+e2 = Empleado('Juan')
+
+print(e1.empresa)
+print(e2.empresa)
+Empleado.empresa = 'Murayaritech'
+print(e1.empresa)
 
 
 
