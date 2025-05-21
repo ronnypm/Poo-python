@@ -107,36 +107,72 @@
 
 
 # Excepción personalizada
-class FondosInsuficientesError(Exception):
-    def __init__(self, saldo, monto):
-        super().__init__(f"No hay fondos suficientes. Saldo actual: ${saldo}, monto solicitado: ${monto}")
+# class FondosInsuficientesError(Exception):
+#     def __init__(self, saldo, monto):
+#         super().__init__(f"No hay fondos suficientes. Saldo actual: ${saldo}, monto solicitado: ${monto}")
 
-# Clase Cuenta
-class CuentaBancaria:
-    def __init__(self, saldo_inicial):
-        self.saldo = saldo_inicial
+# # Clase Cuenta
+# class CuentaBancaria:
+#     def __init__(self, saldo_inicial):
+#         self.saldo = saldo_inicial
 
-    def retirar(self, monto):
-        if monto > self.saldo:
-            raise FondosInsuficientesError(self.saldo, monto)
-        self.saldo -= monto
-        return f'Retiro exitoso. Nuevo saldo: ${self.saldo}'
+#     def retirar(self, monto):
+#         if monto > self.saldo:
+#             raise FondosInsuficientesError(self.saldo, monto)
+#         self.saldo -= monto
+#         return f'Retiro exitoso. Nuevo saldo: ${self.saldo}'
 
-# Clase Cajero que usa composición (tiene una CuentaBancaria)
-class CajeroAutomatico:
-    def __init__(self, cuenta):
-        self.cuenta = cuenta  # Composición: el cajero tiene una cuenta
+# # Clase Cajero que usa composición (tiene una CuentaBancaria)
+# class CajeroAutomatico:
+#     def __init__(self, cuenta):
+#         self.cuenta = cuenta  # Composición: el cajero tiene una cuenta
 
-    def realizar_retiro(self, monto):
-        try:
-            mensaje = self.cuenta.retirar(monto)
-            print(mensaje)
-        except FondosInsuficientesError as e:
-            print(f'Error: {e}')
+#     def realizar_retiro(self, monto):
+#         try:
+#             mensaje = self.cuenta.retirar(monto)
+#             print(mensaje)
+#         except FondosInsuficientesError as e:
+#             print(f'Error: {e}')
 
-# Uso del sistema
-mi_cuenta = CuentaBancaria(1000)
-cajero = CajeroAutomatico(mi_cuenta)
+# # Uso del sistema
+# mi_cuenta = CuentaBancaria(1000)
+# cajero = CajeroAutomatico(mi_cuenta)
 
-cajero.realizar_retiro(300)   # ✅ Retiro exitoso
-cajero.realizar_retiro(800)   # ❌ Saldo insuficiente
+# cajero.realizar_retiro(300)   # ✅ Retiro exitoso
+# cajero.realizar_retiro(800)   # ❌ Saldo insuficiente
+
+
+
+
+# Excepción personalizada
+class StockInsuficienteError(Exception):
+    def __init__(self, disponibles, solicitados):
+        super().__init__(f"No hay stock suficiente. Disponibles: {disponibles}, Solicitados: {solicitados}")
+
+# Clase Producto
+class Producto:
+    def __init__(self, nombre, precio, stock):
+        self.nombre = nombre
+        self.precio = precio
+        self.stock = stock
+
+    def vender(self, cantidad):
+        if cantidad <= 0:
+            raise ValueError("La cantidad debe ser mayor que cero.")
+        if cantidad > self.stock:
+            raise StockInsuficienteError(self.stock, cantidad)
+        self.stock -= cantidad
+        return f"{cantidad} unidades de '{self.nombre}' vendidas. Stock restante: {self.stock}"
+
+
+# Instanciamos un producto
+producto = Producto("Auriculares", 50, 10)
+
+# Hacemos la venta desde otro lugar del código
+try:
+    print(producto.vender(3))     # ✅ Éxito
+    print(producto.vender(8))     # ❌ Error: No hay suficiente stock
+except StockInsuficienteError as e:
+    print(f"Error de stock: {e}")
+except ValueError as e:
+    print(f"Error de validación: {e}")
