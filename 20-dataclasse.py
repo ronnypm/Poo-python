@@ -5,17 +5,24 @@
 
 
 
-from dataclasses import dataclass
+# from dataclasses import dataclass
 
-@dataclass 
-class Usuario:
-    nombre: str
-    edad: int
-    activo: bool = True
+# @dataclass 
+# class Usuario:
+#     nombre: str
+#     edad: int
+#     activo: bool = True
 
-u_1 = Usuario('Ronny',25,False)
-u_2 = Usuario('Genearo',65)
-print(u_1)
-print(u_1 == u_2)
-print(u_1.nombre)
+# u_1 = Usuario('Ronny',25,False)
+# u_2 = Usuario('Genearo',65)
+# print(u_1)
+# print(u_1 == u_2)
+# print(u_1.nombre)
     
+s = 'Hello World'
+slist = s.split()
+
+
+
+
+
